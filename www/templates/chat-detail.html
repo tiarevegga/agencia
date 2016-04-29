@@ -4,37 +4,51 @@
   The FriendsCtrl pulls data from the Friends service (service.js)
   The Friends service returns an array of friend data
 -->
-<ion-view view-title="Editar contacto">
+<ion-view view-title="Reservacion de viaje">
   <ion-content class="padding">
     
     <form name="agregarForm" novalidate>
     <div class="list">
     <label class="item item-input">
-      <span class="input-label">Nombre</span>
-      <input type="text" name="nombre"  ng-model="persona[0].nombre" required>
+      <span class="input-label">Lugar de Origen</span>
+      <input type="text" name="origen"  ng-model="persona[0].origen" required>
    </label>
    
    <label class="item item-input">
-      <span class="input-label">Apellido</span>
-      <input type="text" name="apellido" ng-model="persona[0].apellido" required>
+      <span class="input-label">Lugar de destino</span>
+      <input type="text" name="destino" ng-model="persona[0].destino" required>
+   </label>
+   
+    <label class="item item-input">
+      <span class="input-label">Fecha de inicio</span>
+      <input type="date" name="fechain" ng-model="persona[0].fechain" required>
+   </label>
+   
+     <label class="item item-input">
+      <span class="input-label">Fecha de regreso</span>
+      <input type="date" name="fechareg" ng-model="persona[0].fechareg" required>
+   </label>
+   
+   
+   
+   <label class="item item-input">
+      <span class="input-label">Cuantas personas viajan:</span>
+      <input type="number" name="personas" ng-model="persona[0].personas"  required>
    </label>
    
    <label class="item item-input">
-      <span class="input-label">Telefono</span>
-      <input type="tel" name="telefono" ng-model="persona[0].telefono"  required>
-   </label>
-   
-   <label class="item item-input">
-      <span class="input-label">Email</span>
-      <input type="text" name="email" ng-model="persona[0].email" required>
+      <span class="input-label">Costo Final</span>
+      <input type="number" name="costo" ng-model="persona[0].costo" required>
    </label>
    </div>
    
    <div class="padding">
-        <p ng-show="agregarForm.nombre.$error.required">Escriba el nombre</p>
-        <p ng-show="agregarForm.apellido.$error.required">Escriba el apellido</p>
-        <p ng-show="agregarForm.telefono.$error.required">Escriba el telefono</p>
-        <p ng-show="agregarForm.email.$error.required">Escriba el email</p>
+        <p ng-show="agregarForm.origen.$error.required">Escriba el lugar de origen</p>
+        <p ng-show="agregarForm.destino.$error.required">Escriba el destino del viaje</p>
+         <p ng-show="agregarForm.fechain.$error.required">Escriba la fecha de inicio</p>
+          <p ng-show="agregarForm.fechareg.$error.required">Escriba la fecha de regreso</p>
+          <p ng-show="agregarForm.personas.$error.required">Escriba el numero de personas que viajan</p>
+        <p ng-show="agregarForm.costo.$error.required">Escriba el costo final del viaje</p>
         <p>{{ statusMessage }}</p>
     </div>
     
