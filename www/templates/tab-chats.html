@@ -1,4 +1,4 @@
-<ion-view view-title="Registros">
+<ion-view view-title="Chats">
 <ion-nav-buttons side="primary">
       <button class="button" ng-click="getAll()">
         Recarga
@@ -9,7 +9,7 @@
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
         <h2>{{chat.origen}} {{chat.destino}}</h2>
         <p>{{chat.fechain}}</p>
-           <p>{{chat.fechareg}}</p>
+        <p>{{chat.fechareg}}</p>
         <p>{{chat.personas}}</p>
         <p>{{chat.costo}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
