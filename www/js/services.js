@@ -14,17 +14,19 @@ angular.module('starter.services', [])
 
       chats = [];
 
-      $cordovaSQLite.execute(db, 'SELECT * FROM agenda ORDER BY id DESC')
+      $cordovaSQLite.execute(db, 'SELECT * FROM agencia ORDER BY id DESC')
        .then(
           function(result) {
              if (result.rows.length > 0) {
                       for(var i = 0; i < result.rows.length; i++)
                       { 
                         chats.push({"id":result.rows.item(i).id,
-                                    "nombre":result.rows.item(i).nombre,
-                                    "apellido":result.rows.item(i).apellido,
-                                    "telefono":result.rows.item(i).telefono,
-                                    "email":result.rows.item(i).email});
+                                    "origen":result.rows.item(i).origen,
+                                    "destino":result.rows.item(i).destino,
+                                    "fechain":result.rows.item(i).fechain,
+                                     "fechareg":result.rows.item(i).fechareg,
+                                      "personas":result.rows.item(i).personas,
+                                    "costo":result.rows.item(i).costo});
                       }
                     }
                 },
@@ -36,7 +38,7 @@ angular.module('starter.services', [])
       return chats;
     },
     remove: function(chat) {
-      $cordovaSQLite.execute(db, 'DELETE FROM agenda where id = ?',[chat.id])
+      $cordovaSQLite.execute(db, 'DELETE FROM agencia where id = ?',[chat.id])
       .then(function(result){
           statusMessage = "Borrado";
           chats.splice(chats.indexOf(chat), 1);
@@ -50,16 +52,18 @@ angular.module('starter.services', [])
 
         chats = [];
         
-        $cordovaSQLite.execute(db, 'SELECT * FROM agenda where id = ?',[chatId])
+        $cordovaSQLite.execute(db, 'SELECT * FROM agencia where id = ?',[chatId])
        .then(
           function(result) {
                
              if (result.rows.length > 0) {
                         chats.push({"id":result.rows.item(0).id,
-                                    "nombre":result.rows.item(0).nombre,
-                                    "apellido":result.rows.item(0).apellido,
-                                    "telefono":result.rows.item(0).telefono,
-                                    "email":result.rows.item(0).email});                 
+                        "origen":result.rows.item(0).origen,
+                        "destino":result.rows.item(0).destino,
+                        "fechain":result.rows.item(0).fechain,
+                                    "fechareg":result.rows.item(0).fechareg,
+                                    "personas":result.rows.item(0).personas,
+                                    "costo":result.rows.item(0).costo});                 
                 
                     }
                     
