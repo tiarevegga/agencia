@@ -25,12 +25,12 @@ angular.module('starter', ['ionic','ngCordova', 'starter.controllers', 'starter.
     //db = $cordovaSQLite.openDB("practica2_agenda.db");
     if(window.cordova)
     {
-     db = $cordovaSQLite.openDB("practica2_agenda.db");
+     db = $cordovaSQLite.openDB("practica2_agencia.db");
     } else {
-      db = window.openDatabase("practica2_agenda.db", "1", "Aplicacion", -1);
+      db = window.openDatabase("practica2_agencia.db", "1", "Aplicacion", -1);
     }
     
-    $cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS agenda (id INTEGER PRIMARY KEY AUTOINCREMENT, nombre varchar(255),apellido varchar(255),telefono varchar(255),email varchar(255))');
+    $cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS agencia (id INTEGER PRIMARY KEY AUTOINCREMENT, origen varchar(255),destino varchar(255),fechain date(),fechareg date(),personas int(),costo decimal())');
     
 
   });
