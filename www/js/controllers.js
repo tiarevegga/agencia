@@ -4,7 +4,7 @@ angular.module('starter.controllers', [])
     
     $scope.showAlert = function() {
      var alertPopup = $ionicPopup.alert({
-       title: 'agenda',
+       title: 'Agenda',
        template: 'Datos guardados'
      });
     }
@@ -77,14 +77,14 @@ angular.module('starter.controllers', [])
   
   $scope.guardar = function(persona){
         
-        $cordovaSQLite.execute(db, 'UPDATE agenda set origen=?,destino=?,fechain=?,fechareg=?,personas=?,costo=? where id = ?', [persona.origen,persona.destino,persona.fechain,persona.fechareg,persona.personas,persona.costos,persona.id])
+        $cordovaSQLite.execute(db, 'UPDATE agenda set origen=?,destino=?,fechain=?,fechareg=?,personas=?,costo=? where id = ?', [persona.origen,persona.destino,persona.fechain,persona.fechareg,persona.personas,persona.costo,persona.id])
         .then(function(result) {
             $scope.statusMessage = "Registro guardado!";
         }, function(error) {
             $scope.statusMessage = "Error al guardar: " + error.message;
         })
         
-        console.log("NOMBRE: "+persona.nombre);
+        console.log("origen: "+persona.origen);
         console.log("ID: "+persona.id);
     }
   
