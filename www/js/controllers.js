@@ -4,14 +4,14 @@ angular.module('starter.controllers', [])
     
     $scope.showAlert = function() {
      var alertPopup = $ionicPopup.alert({
-       title: 'Agencia',
+       title: 'agenda',
        template: 'Datos guardados'
      });
     }
     
     $scope.guardar = function(persona){
         
-        $cordovaSQLite.execute(db, 'INSERT INTO agencia (origen,destino,fechain,fechareg,personas,costo) VALUES (?,?,?,?,?,?)', [persona.origen,persona.destino,persona.fechain,persona.fechareg,persona.personas,persona.costo])
+        $cordovaSQLite.execute(db, 'INSERT INTO agenda (origen,destino,fechain,fechareg,personas,costo) VALUES (?,?,?,?,?,?)', [persona.origen,persona.destino,persona.fechain,persona.fechareg,persona.personas,persona.costo])
         .then(function(result) {
             $scope.statusMessage = "Registro guardado!";
         }, function(error) {
@@ -77,7 +77,7 @@ angular.module('starter.controllers', [])
   
   $scope.guardar = function(persona){
         
-        $cordovaSQLite.execute(db, 'UPDATE agencia set origen=?,destino=?,fechain=?,fechareg=?,personas=?,costo=? where id = ?', [persona.origen,persona.destino,persona.fechain,persona.fechareg,persona.personas,persona.costos,persona.id])
+        $cordovaSQLite.execute(db, 'UPDATE agenda set origen=?,destino=?,fechain=?,fechareg=?,personas=?,costo=? where id = ?', [persona.origen,persona.destino,persona.fechain,persona.fechareg,persona.personas,persona.costos,persona.id])
         .then(function(result) {
             $scope.statusMessage = "Registro guardado!";
         }, function(error) {
